@@ -410,21 +410,52 @@ def Atribitos_OP():
 
 
 def Convertir():
+
+	global comando1
+	Comando = Elegir_clase.get()
 	Ventana_O=Toplevel()
-	Comando = opcion.get()
 	imprimir = Label(Ventana_O, text=Comando).pack()
+	
+	Comando_1 = Comando
 
+	if Comando_1 == "Actividad Economica":
+		Actividad_Economica()
 
-	return Comando
+	if Comando_1 =="Capital":
+		Captal_1()
+		
+	if Comando_1 =="Departamentos":
+		Departamentos_1()
+		
+	if Comando_1 =="Estadisticas":
+		Estadisticas_1()
+		
+	if Comando_1 =="Informacion de la Empresa":
+		Informacion_de_la_empresa()
+		
+	if Comando_1 =="Fundaciones":
+		Fundacion_1()
 
+	if Comando_1 =="Fundaciones":
+		Instalaciones_1()
+		
+	if Comando_1 =="Opiniones":
+		Opiniones_1()
+
+		
+	if Comando_1 =="Ubicacion":
+		Ubicacion_1()
+		
+	if Comando_1 =="Redes Sociales":
+		Redes_Sociales()
 
 
 #*******************VENTANA PRINCIPAL*******************************
 	
 
-
+Comando_1 = ''
 root = Tk()
-root.title("Istituto Nacional de Estadisticas y Geografia")
+root.title("Instituto Nacional de Estadisticas y Geografia")
 
 foto = PhotoImage(file="inegi.png")
 etiqueta= Label(root, image=foto)
@@ -508,43 +539,6 @@ espacio3.pack()
 Boton1=Button(root,text="Buscar", fg="white", bg="navy", font="Helvetica 18 bold",command=Convertir)
 Boton1.pack(ipadx=65, ipady=2)
 
-Comando_1 = Convertir()
-
-
-if Comando_1 == "Actividad Economica":
-	Actividad_Economica()
-
-if Comando_1 =="Capital":
-	Captal_1()
-	
-if Comando_1 =="Departamentos":
-	Departamentos_1()
-	
-if Comando_1 =="Estadisticas":
-	Estadisticas_1()
-	
-if Comando_1 =="Informacion de la Empresa":
-	Informacion_de_la_empresa()
-	
-if Comando_1 =="Fundaciones":
-	Fundacion_1()
-
-if Comando_1 =="Fundaciones":
-	Instalaciones_1()
-	
-if Comando_1 =="Opiniones":
-	Opiniones_1()
-
-	
-if Comando_1 =="Ubicacion":
-	Ubicacion_1()
-	
-if Comando_1 =="Redes Sociales":
-	Redes_Sociales()
-
-
-
-
 espacio4.pack()
 
 espacio5.pack(fill=X)
@@ -583,7 +577,7 @@ espacio8.pack()
 espacio7 = Label(root,text= "", bg="navy")
 espacio7.pack(fill=X)
 
-foto1 = PhotoImage(file="mexico.png")
+foto1 = PhotoImage(file="inegi.png")
 etiqueta1= Label(root, image=foto1)
 etiqueta1.pack(side=TOP)
 
