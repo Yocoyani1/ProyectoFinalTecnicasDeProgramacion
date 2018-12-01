@@ -3,10 +3,16 @@
 from tkinter import *
 
 
-
+import Menu as mn
 from BaseDeDatos import BaseDeDatos
 from ControladorDeObjeto import ControladorDeObjeto
 from funciones import validacionEntera
+import funciones as fc
+
+def main():
+	fc.crearBases()
+
+	
 
 """
 def Busquedaa():
@@ -20,6 +26,14 @@ def Busquedaa():
 	b2.pack()
 	b3.pack()
 """
+def editar():
+	BaseDeDatos.editarDatos(Comando_1)
+def mostrar():
+	BaseDeDatos.mostrarDatos(Comando_1)
+def borrar():
+	BaseDeDatos.borrarDatos(Comando_1)
+def agregar():
+	BaseDeDatos.agregarDatose(Comando_1)
 
 def Clases():
 	Ventana_C=Toplevel(root)
@@ -50,6 +64,7 @@ def login():
 
 	Sesion=Tk()
 
+	global Usuario_2, Contrasena_2
 
 	Relleno=Label(Sesion,text="", bg="navy").pack(fill=X)
 	Comienzo=Label(Sesion, text="INICIO DE SESION", fg="white",bg="navy", font="Helvetica 16 bold").pack(fill=X)
@@ -66,6 +81,14 @@ def login():
 	Contrasena_1= StringVar()
 	Recuadro_2= Entry(Sesion,show="*", textvariable=Contrasena_1).pack()
 	Contrasena_2=str(Contrasena_1.get())
+
+
+	with open ("Usuario.txt", 'w') as w:
+		w.write("Datos de Usuario")
+		w.write(Usuario_2)
+		w.write(Contrasena_2)
+
+		pass
 	
 	Relleno_4=Label(Sesion,text="", bg="navy").pack(fill=X)
     
@@ -73,7 +96,7 @@ def login():
 
 	Sesion.mainloop()
 
-	return Usuario_2, Contrasena_2
+
 
 def Datos():
 
@@ -81,19 +104,19 @@ def Datos():
 	Mostrar_Datos=Toplevel(root)
 
 	Encabezado_5=Label(Mostrar_Datos, text="Datos de la Sesion Iniciada:\n\n").pack()
-	usu=Label(Mostrar_Datos, text= Usuario_3).pack()
-	cons=Label(Mostrar_Datos, text= Contrasena_3).pack()
+	usu=Label(Mostrar_Datos, text= Usuario_2).pack()
+	cons=Label(Mostrar_Datos, text= Contrasena_2).pack()
 
 
 
 def Actividad_Economica():
 
 	Popup_1=Toplevel()
-
-	Editar_AE=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_AE= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_AE= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_AE= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
+	Clase_AE = "ActividadEconomica"
+	Editar_AE=Button(Popup_1, text="EDITAR",command = BaseDeDatos.editarDatos(Clase_AE))    #def funcion de editar
+	Mostrar_AE= Button(Popup_1, text="MOSTRAR",command = BaseDeDatos.mostrarDatos(Clase_AE))
+	Eliminar_AE= Button(Popup_1, text="ELIMINAR",command = BaseDeDatos.borrarDatos(Clase_AE))
+	Agregar_AE= Button(Popup_1, text="AGREGAR",command = BaseDeDatos.agregarDatos(Clase_AE))
 	Editar_AE.pack()
 	Mostrar_AE.pack()
 	Eliminar_AE.pack()
@@ -104,15 +127,15 @@ def Actividad_Economica():
 	Ventana_1=Label(Popup_1, text="Tipo empresa \nSector economico\n Razon social\nTamano\nExportaciones\nImportaciones\nAsociaciones\nInversionistas\nAccionistas",bg="white")
 	Ventana_1.pack(fill=X)
 
-def Captal_1():
+def Capital_1():
 
 
 	Popup_1=Toplevel()
 
-	Editar_CAP=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_CAP= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_CAP= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_CAP= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
+	Editar_CAP=Button(Popup_1, text="EDITAR",command = editar)    #def funcion de editar
+	Mostrar_CAP= Button(Popup_1, text="MOSTRAR",command = mostrar)
+	Eliminar_CAP= Button(Popup_1, text="ELIMINAR",command = borrar)
+	Agregar_CAP= Button(Popup_1, text="AGREGAR",command = agregar)
 	Editar_CAP.pack()
 	Mostrar_CAP.pack()
 	Eliminar_CAP.pack()
@@ -128,7 +151,7 @@ def Departamentos_1():
 	Popup_1=Toplevel()
 
 	Editar_DEP=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_DEP= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
+	Mostrar_DEP= Button(Popup_1, text="MOSTRAR",command=BaseDeDatos.mostrarDatos(Comando_1))
 	Eliminar_DEP= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
 	Agregar_DEP= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
 	Editar_DEP.pack()
@@ -411,18 +434,16 @@ def Atribitos_OP():
 
 def Convertir():
 
-	global comando1
+	global Comando_1
 	Comando = Elegir_clase.get()
-	Ventana_O=Toplevel()
-	imprimir = Label(Ventana_O, text=Comando).pack()
-	
+
 	Comando_1 = Comando
 
 	if Comando_1 == "Actividad Economica":
 		Actividad_Economica()
 
 	if Comando_1 =="Capital":
-		Captal_1()
+		Capital_1()
 		
 	if Comando_1 =="Departamentos":
 		Departamentos_1()
@@ -449,11 +470,19 @@ def Convertir():
 	if Comando_1 =="Redes Sociales":
 		Redes_Sociales()
 
+	#else:
+	#	Error_0 = Label (Ventana_Con,text="Error!", fg="white", bg="red", font="Helvetica 16").pack(fill=X)
+	#	Espacios_0 = Label(Ventana_Con,text="").pack()
+	#	Error_1 = Label(Ventana_Con,text="La clase que buscas no existe en la base de datos Intenta de Nuevo").pack() 
+	#	Espacios_1 = Label(Ventana_Con,text="").pack()
+	#	Cerrar=Button(Ventana_Con, text="Volver a Intentar", command=Ventana_Con.destroy).pack()
 
 #*******************VENTANA PRINCIPAL*******************************
 	
-
+Contrasena_2 = ''
+Usuario_2 = 'Aun no hay Datos Registrados'
 Comando_1 = ''
+main()
 root = Tk()
 root.title("Instituto Nacional de Estadisticas y Geografia")
 
