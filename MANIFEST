@@ -15,6 +15,7 @@ proyecto/Fundaciones.py
 proyecto/ImagenesYVideo.py
 proyecto/InformacionDeLaEmpresa.py
 proyecto/Instalaciones.py
+proyecto/Interfaz_Grafica.py
 proyecto/LideresEmpresariales.py
 proyecto/Menu.py
 proyecto/MenuBusqueda.py
