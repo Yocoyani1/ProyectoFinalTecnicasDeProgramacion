@@ -12,7 +12,19 @@ import funciones as fc
 def main():
 	fc.crearBases()
 
-	
+def editar():
+	ControladorDeObjeto.editarObjeto(Comando_1)
+
+def mostrar():
+	BaseDeDatos.mostrarDatos(Comando_1)
+
+def borrar():
+	ControladorDeObjeto.borrarObjeto(Comando_1)
+
+def agregar():
+	ControladorDeObjeto.crearObjeto(Comando_1)
+
+
 
 """
 def Busquedaa():
@@ -26,14 +38,6 @@ def Busquedaa():
 	b2.pack()
 	b3.pack()
 """
-def editar():
-	BaseDeDatos.editarDatos(Comando_1)
-def mostrar():
-	BaseDeDatos.mostrarDatos(Comando_1)
-def borrar():
-	BaseDeDatos.borrarDatos(Comando_1)
-def agregar():
-	BaseDeDatos.agregarDatose(Comando_1)
 
 def Clases():
 	Ventana_C=Toplevel(root)
@@ -112,18 +116,23 @@ def Datos():
 def Actividad_Economica():
 
 	Popup_1=Toplevel()
-	Clase_AE = "ActividadEconomica"
-	Editar_AE=Button(Popup_1, text="EDITAR",command = BaseDeDatos.editarDatos(Clase_AE))    #def funcion de editar
-	Mostrar_AE= Button(Popup_1, text="MOSTRAR",command = BaseDeDatos.mostrarDatos(Clase_AE))
-	Eliminar_AE= Button(Popup_1, text="ELIMINAR",command = BaseDeDatos.borrarDatos(Clase_AE))
-	Agregar_AE= Button(Popup_1, text="AGREGAR",command = BaseDeDatos.agregarDatos(Clase_AE))
-	Editar_AE.pack()
-	Mostrar_AE.pack()
-	Eliminar_AE.pack()
-	Agregar_AE.pack()
 
-	Popup1=Label(Popup_1,text="Actividad Economica:",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Actividad Economica:",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_AE=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_AE= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_AE= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_AE= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_AE.pack(ipadx=50)
+	Mostrar_AE.pack(ipadx=41)
+	Eliminar_AE.pack(ipadx=42)
+	Agregar_AE.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Tipo empresa \nSector economico\n Razon social\nTamano\nExportaciones\nImportaciones\nAsociaciones\nInversionistas\nAccionistas",bg="white")
 	Ventana_1.pack(fill=X)
 
@@ -132,53 +141,70 @@ def Capital_1():
 
 	Popup_1=Toplevel()
 
-	Editar_CAP=Button(Popup_1, text="EDITAR",command = editar)    #def funcion de editar
-	Mostrar_CAP= Button(Popup_1, text="MOSTRAR",command = mostrar)
-	Eliminar_CAP= Button(Popup_1, text="ELIMINAR",command = borrar)
-	Agregar_CAP= Button(Popup_1, text="AGREGAR",command = agregar)
-	Editar_CAP.pack()
-	Mostrar_CAP.pack()
-	Eliminar_CAP.pack()
-	Agregar_CAP.pack()
-
-	Popup1=Label(Popup_1,text="Capital",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Capital",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_CAP=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_CAP= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_CAP= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_CAP= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_CAP.pack(ipadx=50)
+	Mostrar_CAP.pack(ipadx=41)
+	Eliminar_CAP.pack(ipadx=42)
+	Agregar_CAP.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Presupuesto inicial\nGasto anual total\nPrestamos\nRecursos humanos\nRecursos materiales\nAportaciones PIB\nSubsidios\nDonativos\nRelaciones economicas\nListar objetos",bg="white")
 	Ventana_1.pack(fill=X)
+
 
 def Departamentos_1():
 
 	Popup_1=Toplevel()
 
-	Editar_DEP=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_DEP= Button(Popup_1, text="MOSTRAR",command=BaseDeDatos.mostrarDatos(Comando_1))
-	Eliminar_DEP= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_DEP= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_DEP.pack()
-	Mostrar_DEP.pack()
-	Eliminar_DEP.pack()
-	Agregar_DEP.pack()
-
-	Popup1=Label(Popup_1,text="Departamentos",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Departamentos",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_DEP=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_DEP= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_DEP= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_DEP= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_DEP.pack(ipadx=50)
+	Mostrar_DEP.pack(ipadx=41)
+	Eliminar_DEP.pack(ipadx=42)
+	Agregar_DEP.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="No. empleados\nInvestigacion\nLogistica\nDistribucion\nRecursos humanos\nReguridad\nFinanzas\nLegal\nVentas\nPublicidad\nAtenciona clientes",bg="white")
 	Ventana_1.pack(fill=X)
+
 
 def Estadisticas_1():
 
 	Popup_1=Toplevel()
 
-	Editar_EST=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_EST= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_EST= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_EST= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_EST.pack()
-	Mostrar_EST.pack()
-	Eliminar_EST.pack()
-	Agregar_EST.pack()
-
-	Popup1=Label(Popup_1,text="Estadisticas",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Estadisticas",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_EST=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_EST= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_EST= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_EST= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_EST.pack(ipadx=50)
+	Mostrar_EST.pack(ipadx=41)
+	Eliminar_EST.pack(ipadx=42)
+	Agregar_EST.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Opciones comparacion\nGraficos\nInformaciondatos\nResenas\nNo. opiniones\nContrataciones\nDespidos\nTamano de empresa\nCrecimiento",bg="white")
 	Ventana_1.pack(fill=X)
 
@@ -186,17 +212,22 @@ def Informacion_de_la_empresa():
 
 	Popup_1=Toplevel()
 
-	Editar_INF=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_INF= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_INF= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_INF= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_INF.pack()
-	Mostrar_INF.pack()
-	Eliminar_INF.pack()
-	Agregar_INF.pack()
-
-	Popup1=Label(Popup_1,text="Informacion de Empresa",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Informacion de la empresa",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_INF=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_INF= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_INF= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_INF= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_INF.pack(ipadx=50)
+	Mostrar_INF.pack(ipadx=41)
+	Eliminar_INF.pack(ipadx=42)
+	Agregar_INF.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Nombre\nTelefono\nFax\nCarreras\nForos\nConferencias\nNewsletter\nPublicaciones\nPoliticas de privacidad\nFecha de fundacion\nCorreo",bg="white")
 	Ventana_1.pack(fill=X)
 
@@ -204,17 +235,22 @@ def Fundacion_1():
 
 	Popup_1=Toplevel()
 
-	Editar_FUN=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_FUN= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_FUN= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_FUN= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_FUN.pack()
-	Mostrar_FUN.pack()
-	Eliminar_FUN.pack()
-	Agregar_FUN.pack()
-
-	Popup1=Label(Popup_1,text="Fundaciones",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Fundaciones",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_FUN=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_FUN= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_FUN= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_FUN= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_FUN.pack(ipadx=50)
+	Mostrar_FUN.pack(ipadx=41)
+	Eliminar_FUN.pack(ipadx=42)
+	Agregar_FUN.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Nombre\nClave\nContrasena\nIndentificacion seccion\nPuesto\nCodigo postal\nRacha de contribucion\n,Modificacion reciente\nUltima sesion\nUuario normal",bg="white")
 	Ventana_1.pack(fill=X)
 
@@ -222,35 +258,46 @@ def Instalaciones_1():
 
 	Popup_1=Toplevel()
 
-	Editar_INS=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_INS= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_INS= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_INS= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_INS.pack()
-	Mostrar_INS.pack()
-	Eliminar_INS.pack()
-	Agregar_INS.pack()
-
-	Popup1=Label(Popup_1,text="Instalaciones",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Instalaciones",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_INS=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_INS= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_INS= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_INS= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_INS.pack(ipadx=50)
+	Mostrar_INS.pack(ipadx=41)
+	Eliminar_INS.pack(ipadx=42)
+	Agregar_INS.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Centro de distribucion\nCentro produccion\nManufactura\nEnsamble\nCentro de investigacion y servicios\nSucursales\nSedes\nAlmacenes",bg="white")
 	Ventana_1.pack(fill=X)
+
 
 def Opiniones_1():
 
 	Popup_1=Toplevel()
 
-	Editar_OP=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_OP= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_OP= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_OP= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_OP.pack()
-	Mostrar_OP.pack()
-	Eliminar_OP.pack()
-	Agregar_OP.pack()
-
-	Popup1=Label(Popup_1,text="Opiniones",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Opiniones",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_OP=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_OP= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_OP= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_OP= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_OP.pack(ipadx=50)
+	Mostrar_OP.pack(ipadx=41)
+	Eliminar_OP.pack(ipadx=42)
+	Agregar_OP.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Numero de Opiniones\nCalificacion\nCompartidos\nMenciones en la WEB\nComentarios\nUsuarios\nFechas\nRespuestas\nComentarios Inadecuados",bg="white")
 	Ventana_1.pack(fill=X)
 
@@ -258,37 +305,47 @@ def Redes_Sociales():
 
 	Popup_1=Toplevel()
 
-	Editar_RED=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_RED= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_RED= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_RED= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_RED.pack()
-	Mostrar_RED.pack()
-	Eliminar_RED.pack()
-	Agregar_RED.pack()
-
-	Popup1=Label(Popup_1,text="Redes Sociales",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Redes Sociales",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_RED=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_RED= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_RED= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_RED= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_RED.pack(ipadx=50)
+	Mostrar_RED.pack(ipadx=41)
+	Eliminar_RED.pack(ipadx=42)
+	Agregar_RED.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="\nFacebook\nTwitter\nInstagram\nLinkedIn\nYoutube\nE-mail\nVentas en linea\nSkype",bg="white")
 	Ventana_1.pack(fill=X)
-
 def Ubicacion_1():
 
 	Popup_1=Toplevel()
 
-	Editar_UBI=Button(Popup_1, text="EDITAR",command=ControladorDeObjeto.editarObjeto(Comando_1))    #def funcion de editar
-	Mostrar_UBI= Button(Popup_1, text="MOSTRAR",command=ControladorDeObjeto.mostrarDatos(Comando_1))
-	Eliminar_UBI= Button(Popup_1, text="ELIMINAR",command=ControladorDeObjeto.borrarObjeto(Comando_1))
-	Agregar_UBI= Button(Popup_1, text="AGREGAR",command=ControladorDeObjeto.buscarObjeto(Comando_1))
-	Editar_UBI.pack()
-	Mostrar_UBI.pack()
-	Eliminar_UBI.pack()
-	Agregar_UBI.pack()
-
-	Popup1=Label(Popup_1,text="Ubicacion",bg="aquamarine",font= "Helvetica 14 bold")
+	Popup1=Label(Popup_1,text="Ubicacion",bg="steelblue1",font= "Helvetica 14 bold")
 	Popup1.pack(side=TOP,fill=X)
+
+
+	Editar_UBI=Button(Popup_1, text="EDITAR",command = editar, bg="white", fg="navy", font="Helvetica 12 bold")    #def funcion de editar
+	Mostrar_UBI= Button(Popup_1, text="MOSTRAR",command = mostrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Eliminar_UBI= Button(Popup_1, text="ELIMINAR",command = borrar, bg="white", fg="navy", font="Helvetica 12 bold")
+	Agregar_UBI= Button(Popup_1, text="AGREGAR",command = agregar, bg="white", fg="navy", font="Helvetica 12 bold")
+
+	Editar_UBI.pack(ipadx=50)
+	Mostrar_UBI.pack(ipadx=41)
+	Eliminar_UBI.pack(ipadx=42)
+	Agregar_UBI.pack(ipadx=40)
+
+	space=Label(Popup_1, text="-----------------------------------", bg="steelblue1").pack(fill=X)
+
 	Ventana_1=Label(Popup_1, text="Pais\nEstado\nMunicipio\nLocalidad\nCalle\nNnumero\nCP\nCoordenadas\nSucursales\nArea geografica",bg="white")
 	Ventana_1.pack(fill=X)
+
 
 def CuentaAdmin():
 	print("Clase Cuenta de Administrador")
@@ -434,48 +491,52 @@ def Atribitos_OP():
 
 def Convertir():
 
-	global Comando_1
+	global comando1
 	Comando = Elegir_clase.get()
+	Ventana_Con=Toplevel()
 
 	Comando_1 = Comando
 
 	if Comando_1 == "Actividad Economica":
 		Actividad_Economica()
+		Ventana_Con.destroy()
 
 	if Comando_1 =="Capital":
 		Capital_1()
-		
+		Ventana_Con.destroy()
 	if Comando_1 =="Departamentos":
 		Departamentos_1()
-		
+		Ventana_Con.destroy()
 	if Comando_1 =="Estadisticas":
 		Estadisticas_1()
-		
+		Ventana_Con.destroy()
 	if Comando_1 =="Informacion de la Empresa":
 		Informacion_de_la_empresa()
-		
+		Ventana_Con.destroy()
 	if Comando_1 =="Fundaciones":
 		Fundacion_1()
-
-	if Comando_1 =="Fundaciones":
+		Ventana_Con.destroy()
+	if Comando_1 =="Instalaciones":
 		Instalaciones_1()
-		
+		Ventana_Con.destroy()
 	if Comando_1 =="Opiniones":
 		Opiniones_1()
-
+		Ventana_Con.destroy()
 		
 	if Comando_1 =="Ubicacion":
 		Ubicacion_1()
-		
+		Ventana_Con.destroy()
 	if Comando_1 =="Redes Sociales":
 		Redes_Sociales()
+		Ventana_Con.destroy()
 
-	#else:
-	#	Error_0 = Label (Ventana_Con,text="Error!", fg="white", bg="red", font="Helvetica 16").pack(fill=X)
-	#	Espacios_0 = Label(Ventana_Con,text="").pack()
-	#	Error_1 = Label(Ventana_Con,text="La clase que buscas no existe en la base de datos Intenta de Nuevo").pack() 
-	#	Espacios_1 = Label(Ventana_Con,text="").pack()
-	#	Cerrar=Button(Ventana_Con, text="Volver a Intentar", command=Ventana_Con.destroy).pack()
+	if Comando_1!="Actividad Economica" and Comando_1!="Capital" and Comando_1!="Departamentos" and Comando_1!="Estadisticas" and Comando_1!="Informacion de la empresa" and Comando_1!="Fundaciones" and Comando_1!="Instalaciones" and Comando_1!="Opiniones" and Comando_1!="Ubicacion" and Comando_1!="Redes Sociales":
+		
+		Error_0 = Label (Ventana_Con,text="Error!", fg="white", bg="red", font="Helvetica 16").pack(fill=X)
+		Espacios_0 = Label(Ventana_Con,text="").pack()
+		Error_1 = Label(Ventana_Con,text="La clase que buscas no existe en la base de datos Intenta de Nuevo").pack() 
+		Espacios_1 = Label(Ventana_Con,text="").pack()
+		Cerrar=Button(Ventana_Con, text="Volver a Intentar", command=Ventana_Con.destroy).pack()
 
 #*******************VENTANA PRINCIPAL*******************************
 	
